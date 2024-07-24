@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gerenciamento Financeiro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #ffe259, #ffa751);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 500;
+        }
+        header img {
+            margin-top: 20px;
+            width: 300px;
+            height: auto;
+        }
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ff6f61;
+            font-weight: 500;
+        }
+        .features, .pricing, .cta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .features div, .pricing div, .cta div {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            max-width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .features div:hover, .pricing div:hover, .cta div:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .features i, .pricing i, .cta i {
+            font-size: 3em;
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+        .features p, .pricing p, .cta p {
+            font-size: 1em;
+            margin: 10px 0;
+            color: #555;
+        }
+        .pricing h3 {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .pricing p.price {
+            font-size: 1.5em;
+            color: #ff6f61;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .cta {
+            margin-top: 40px;
+        }
+        .cta div {
+            padding: 20px 40px;
+            background-color: #e74c3c;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cta div:hover {
+            background-color: #c0392b;
+        }
+        .cta i {
+            margin-right: 10px;
+            color: #ffeb3b; /* Cor do ícone do carrinho */
+        }
+        .cta p {
+            margin: 0;
+            color: #ffeb3b; /* Cor do texto "Assine Agora" */
+        }
+        .logo-container, .screenshot-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .logo-container img, .screenshot-container img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gerenciamento Financeiro</h1>
+        <div class="logo-container">
+            <!-- Espaço para a logo marca -->
+            <img src="logo.png" alt="Logo Marca">
+        </div>
+    </header>
+    <section>
+        <h2>Transforme a Gestão das Suas Finanças</h2>
+        <p>Assuma o controle total das suas finanças com uma solução completa e eficiente.</p>
+    </section>
+    <section class="features">
+        <div>
+            <i class="fas fa-chart-line"></i>
+            <h3>Controle Completo</h3>
+            <p>Adicione e gerencie receitas e despesas de forma organizada.</p>
+        </div>
+        <div>
+            <i class="fas fa-file-alt"></i>
+            <h3>Relatórios Poderosos</h3>
+            <p>Filtros detalhados e gráficos que mostram onde você está gastando e economizando.</p>
+        </div>
+        <div>
+            <i class="fas fa-bell"></i>
+            <h3>Lembretes de Pagamento</h3>
+            <p>Configure lembretes e receba notificações na hora certa.</p>
+        </div>
+        <div>
+            <i class="fas fa-lock"></i>
+            <h3>Segurança de Dados</h3>
+            <p>Seus dados financeiros protegidos com a mais alta segurança disponível.</p>
+        </div>
+    </section>
+    <section class="screenshot-container">
+        <!-- Espaço para a interface do sistema -->
+        <img src="interface.png" alt="Interface do Sistema">
+    </section>
+    <section class="pricing">
+        <div>
+            <i class="fas fa-calendar-alt"></i>
+            <h3>Plano Mensal</h3>
+            <p class="price">R$ 9,90/mês</p>
+            <p>Acesso completo às funcionalidades do sistema.</p>
+        </div>
+        <div>
+            <i class="fas fa-calendar-check"></i>
+            <h3>Plano Anual</h3>
+            <p class="price">R$ 99,90/ano</p>
+            <p>Economize 16% com o plano anual. Acesso completo às funcionalidades do sistema.</p>
+        </div>
+    </section>
+    <section class="cta">
+        <div onclick="window.location.href='#'">
+            <i class="fas fa-shopping-cart"></i>
+            <p>Assine Agora</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Sistema de Gerenciamento Financeiro. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
