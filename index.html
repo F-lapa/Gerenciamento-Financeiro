@@ -1,190 +1,289 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gerenciamento Financeiro</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Gerenciamento Financeiro - R$ 29,90</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #1abc9c;
+            --secondary-color: #16a085;
+            --text-color: #34495e;
+            --bg-color: #ecf0f1;
+            --button-color: #e74c3c;
+            --price-color: #e67e22;
+            --accent-color: #2c3e50;
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #ffe259, #ffa751);
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            scroll-behavior: smooth;
         }
+
         header {
-            background-color: #ff6f61;
-            color: #fff;
-            padding: 20px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 40px;
             text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         header h1 {
             margin: 0;
-            font-size: 2.5em;
-            font-weight: 500;
+            font-size: 3em;
         }
+
+        header p {
+            margin: 10px 0 20px;
+            font-size: 1.3em;
+        }
+
         header img {
             margin-top: 20px;
-            width: 300px;
+            max-width: 200px;
             height: auto;
         }
-        section {
-            padding: 50px 20px;
+
+        .cta-header {
+            margin-top: 20px;
+            display: inline-block;
+            background-color: var(--button-color);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-header:hover {
+            background-color: #c0392b;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 20px;
             text-align: center;
         }
-        section h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #ff6f61;
-            font-weight: 500;
+
+        .highlight {
+            color: var(--price-color);
+            font-weight: bold;
         }
-        .features, .pricing, .cta {
+
+        .features {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
+            justify-content: space-between;
+            margin-top: 40px;
         }
-        .features div, .pricing div, .cta div {
-            background: #fff;
+
+        .feature {
+            flex: 1 1 calc(45% - 20px);
+            background-color: white;
+            margin: 10px;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 8px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            flex: 1;
-            max-width: 300px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        .features div:hover, .pricing div:hover, .cta div:hover {
+
+        .feature:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
         }
-        .features i, .pricing i, .cta i {
+
+        .feature i {
             font-size: 3em;
-            color: #ff6f61;
-            margin-bottom: 20px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
         }
-        .features p, .pricing p, .cta p {
-            font-size: 1em;
-            margin: 10px 0;
-            color: #555;
+
+        .feature h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
         }
-        .pricing h3 {
-            font-size: 1.5em;
-            color: #333;
+
+        .feature p {
+            font-size: 1.1em;
+            line-height: 1.6em;
         }
-        .pricing p.price {
-            font-size: 1.5em;
-            color: #ff6f61;
-            margin: 20px 0;
-            font-weight: bold;
+
+        .layout-section {
+            margin-top: 60px;
         }
-        .cta {
-            margin-top: 40px;
-        }
-        .cta div {
-            padding: 20px 40px;
-            background-color: #e74c3c;
-            color: #fff;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .cta div:hover {
-            background-color: #c0392b;
-        }
-        .cta i {
-            margin-right: 10px;
-            color: #ffeb3b; /* Cor do ícone do carrinho */
-        }
-        .cta p {
-            margin: 0;
-            color: #ffeb3b; /* Cor do texto "Assine Agora" */
-        }
-        .logo-container, .screenshot-container {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .logo-container img, .screenshot-container img {
-            max-width: 100%;
+
+        .layout-section img {
+            width: 100%;
+            max-width: 800px;
             height: auto;
-            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+
+        .cta {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px;
+            margin-top: 60px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+        }
+
+        .cta p {
+            font-size: 1.5em;
+            margin: 10px 0 30px 0;
+        }
+
+        .cta button {
+            background-color: var(--button-color);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.4em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta button:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+
         footer {
-            background-color: #333;
-            color: #fff;
+            background-color: var(--accent-color);
+            color: white;
             text-align: center;
             padding: 20px;
+            margin-top: 40px;
+            width: 100%;
         }
+
         footer p {
             margin: 0;
         }
+
+        .image-placeholder {
+            background-color: #bdc3c7;
+            color: #7f8c8d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 10px;
+        }
     </style>
 </head>
+
 <body>
     <header>
-        <h1>Sistema de Gerenciamento Financeiro</h1>
-        <div class="logo-container">
-            <!-- Espaço para a logo marca -->
-            <img src="logo.png" alt="Logo Marca">
-        </div>
+        <h1>Gerenciamento Financeiro</h1>
+        <p>Controle suas finanças com facilidade e eficiência</p>
+        <!-- Espaço para o logotipo -->
+        <img src="logo.png" alt="Logotipo do Gerenciamento Financeiro">
+        <a href="#compra" class="cta-header">Adquira agora por R$ 29,90</a>
     </header>
-    <section>
-        <h2>Transforme a Gestão das Suas Finanças</h2>
-        <p>Assuma o controle total das suas finanças com uma solução completa e eficiente.</p>
-    </section>
-    <section class="features">
-        <div>
-            <i class="fas fa-chart-line"></i>
-            <h3>Controle Completo</h3>
-            <p>Adicione e gerencie receitas e despesas de forma organizada.</p>
+
+    <div class="container">
+        <h2>Transforme sua vida financeira por apenas <span class="highlight">R$ 29,90</span></h2>
+        <p>Nosso sistema de Gerenciamento Financeiro foi projetado para simplificar o controle de suas receitas e
+            despesas, permitindo que você tenha uma visão clara e precisa de suas finanças.</p>
+
+        <div class="layout-section">
+            <h2>Veja como é fácil usar o sistema</h2>
+            <!-- Espaço para mostrar o layout do sistema -->
+            <img src="layout.png" alt="Layout do Sistema de Gerenciamento Financeiro">
         </div>
-        <div>
-            <i class="fas fa-file-alt"></i>
-            <h3>Relatórios Poderosos</h3>
-            <p>Filtros detalhados e gráficos que mostram onde você está gastando e economizando.</p>
+
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-filter"></i>
+                <h3>Filtrar Período</h3>
+                <p>Filtre suas transações financeiras por período e tenha uma visão clara dos seus gastos e receitas ao
+                    longo do tempo. Essa função permite que você analise seus dados de forma precisa e identifique
+                    tendências de consumo.</p>
+                <!-- Espaço para a imagem da funcionalidade -->
+                <img src="filtrar.png" alt="Imagem da função 'Filtrar Período'">
+            </div>
+            <div class="feature">
+                <i class="fas fa-money-check-alt"></i>
+                <h3>Definir Limite de Gastos</h3>
+                <p>Mantenha seu orçamento sob controle definindo limites de gastos mensais. Com essa funcionalidade, você
+                    será alertado ao atingir o limite, evitando gastos excessivos e ajudando a manter suas finanças em
+                    dia.</p>
+                <!-- Espaço para a imagem da funcionalidade -->
+                <img src="definir.png" alt="Imagem da função 'Definir Limite de Gastos'">
+            </div>
+            <div class="feature">
+                <i class="fas fa-search-dollar"></i>
+                <h3>Transações Detalhadas</h3>
+                <p>Visualize e analise todas as suas transações em detalhes. Esta ferramenta permite que você veja todas
+                    as entradas e saídas, facilitando a gestão do seu dinheiro e o planejamento financeiro.</p>
+                <!-- Espaço para a imagem da funcionalidade -->
+                <img src="detalhadas.png" alt="Imagem da função 'Transações Detalhadas'">
+            </div>
+            <div class="feature">
+                <i class="fas fa-bell"></i>
+                <h3>Lembrete de Pagamentos</h3>
+                <p>Configure lembretes para seus pagamentos e nunca mais se preocupe em esquecer uma conta. Este recurso
+                    garante que você sempre esteja em dia com suas obrigações financeiras.</p>
+                <!-- Espaço para a imagem da funcionalidade -->
+                <img src="pagamentos.png" alt="Imagem da função 'Lembrete de Pagamentos'">
+            </div>
+            <div class="feature">
+                <i class="fas fa-bell"></i>
+                <h3>Lembrete de Receitas</h3>
+                <p>Mantenha-se informado sobre quando suas receitas serão recebidas. Com este lembrete, você saberá
+                    exatamente quando esperar suas entradas financeiras, permitindo um melhor planejamento.</p>
+                <!-- Espaço para a imagem da funcionalidade -->
+                <img src="receitas.png" alt="Imagem da função 'Lembrete de Receitas'">
+            </div>
+            <div class="feature">
+                <i class="fas fa-chart-line"></i>
+                <h3>Acompanhar Desempenho</h3>
+                <p>Monitore seu desempenho financeiro ao longo do tempo. Este recurso oferece gráficos e relatórios que
+                    mostram como suas finanças estão evoluindo, ajudando você a tomar decisões informadas.</p>
+                <!-- Espaço para a imagem da funcionalidade -->
+                <img src="acompanhar.png" alt="Imagem da função 'Acompanhar Desempenho'">
+            </div>
+            <div class="feature">
+                <i class="fas fa-percent"></i>
+                <h3>Calculadora de Juros Compostos</h3>
+                <p>Planeje seus investimentos e economias usando nossa calculadora de juros compostos. Este recurso
+                    permite que você veja como seus investimentos podem crescer ao longo do tempo com base em diferentes
+                    taxas de juros e frequências de capitalização.</p>
+                <!-- Espaço para a imagem da funcionalidade -->
+                <img src="calculadora.png" alt="Imagem da função 'Calculadora de Juros Compostos'">
+            </div>
         </div>
-        <div>
-            <i class="fas fa-bell"></i>
-            <h3>Lembretes de Pagamento</h3>
-            <p>Configure lembretes e receba notificações na hora certa.</p>
+
+        <div class="cta" id="compra">
+            <h2>Não perca tempo!</h2>
+            <p>Adquira o Gerenciamento Financeiro agora por apenas <span class="highlight">R$ 29,90</span> e comece a
+                transformar suas finanças hoje mesmo.</p>
+            <button onclick="window.location.href='https://www.hotmart.com/pt-br'">Comprar Agora</button>
         </div>
-        <div>
-            <i class="fas fa-lock"></i>
-            <h3>Segurança de Dados</h3>
-            <p>Seus dados financeiros protegidos com a mais alta segurança disponível.</p>
-        </div>
-    </section>
-    <section class="screenshot-container">
-        <!-- Espaço para a interface do sistema -->
-        <img src="interface.png" alt="Interface do Sistema">
-    </section>
-    <section class="pricing">
-        <div>
-            <i class="fas fa-calendar-alt"></i>
-            <h3>Plano Mensal</h3>
-            <p class="price">R$ 9,90/mês</p>
-            <p>Acesso completo às funcionalidades do sistema.</p>
-        </div>
-        <div>
-            <i class="fas fa-calendar-check"></i>
-            <h3>Plano Anual</h3>
-            <p class="price">R$ 99,90/ano</p>
-            <p>Economize 16% com o plano anual. Acesso completo às funcionalidades do sistema.</p>
-        </div>
-    </section>
-    <section class="cta">
-        <div onclick="window.location.href='https://pay.hotmart.com/U94531098M'">
-            <i class="fas fa-shopping-cart"></i>
-            <p>Assine Agora</p>
-        </div>
-    </section>
+    </div>
+
     <footer>
-        <p>&copy; 2024 Sistema de Gerenciamento Financeiro. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Gerenciamento Financeiro. Todos os direitos reservados.</p>
     </footer>
 </body>
+
 </html>
